@@ -14,7 +14,7 @@
     # or ~/.zshrc if you use zsh export TERM=xterm-256color
 
 2.clone this repo to ~/.vim
-    git clone https://github.com/r-lyb/vimrc.git ~/.vim
+    git clone https://github.com/r-lyb/base_setting.git ~/.tmpsetting
 
 3. download vundle
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle

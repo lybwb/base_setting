@@ -16,18 +16,28 @@ fi     #ifend
 
 # 安装系统依赖
 sudo apt-get update
-sudo apt-get install zsh
-sudo apt-get install tmux
-sudo apt-get install python-pip python-dev build-essential
-sudo apt-get install ctags
-sudo apt-get install supervisor
-sudo apt-get install git python-setuptools libmysqlclient-dev libpython2.7-dev libjpeg8-dev libfreetype6-dev zlib1g-dev nginx
-#sudo apt-get install mysql-server-5.6 #密码为root
-sudo apt-get install language-pack-zh-hant language-pack-zh-hans
+sudo apt-get install -y vim
+sudo apt-get install -y zsh
+sudo apt-get install -y tmux
+sudo apt-get install -y python-pip python-dev build-essential
+sudo apt-get install -y ctags
+sudo apt-get install -y supervisor
+sudo apt-get install -y git python-setuptools libmysqlclient-dev libpython2.7-dev libjpeg8-dev libfreetype6-dev zlib1g-dev nginx
+#sudo apt-get install -y mysql-server-5.6 #密码为root
+sudo apt-get install -y language-pack-zh-hant language-pack-zh-hans
 
 sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv
 
-cp vimrc ~/.vimrc
-cp tmux.conf ~/.tmux.conf
-cp zshrc ~/.zshrc
+
+echo 'export TERM=xterm-256color' >> ~/.bashrc
+git clone https://github.com/r-lyb/base_setting.git ~/.tmp_setting
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+cp ~/.tmp_setting/vimrc ~/.vimrc
+vim +Bundleinstall +qall
+cp ~/.tmp_setting/tmux.conf ~/.tmux.conf
+cp ~/.tmp_setting/zshrc ~/.zshrc
+
+sudo chsh -s /bin/zsh
