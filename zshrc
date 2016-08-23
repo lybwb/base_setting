@@ -104,24 +104,6 @@ alias mem="free -m"
 # command L equivalent to command |less
 alias -g L='|less'
 
-alias ssh_ymd='ssh ubuntu@10.201.102.139'
-alias ssh_label='ssh cherrot@123.57.231.52'
-
-alias megvii='cd /Users/roger/megvii'
-alias code='cd /Users/roger/test_code'
-alias tool_py='cd /Users/roger/megvii/label/data_label/tool_py'
-alias tagger='cd /Users/roger/megvii/label/hailizhaocha_backend/Tagger'
-alias download='cd /Users/roger/Downloads'
-alias document='cd /Users/roger/Documents'
-alias data="cd /Users/roger/data"
-alias find_py='find ./ -name "*.py" |xargs grep -n '
-alias findw_py='find ./ -name "*.py" |xargs grep -n -w '
-alias rm_pyc='find ./ -name "*.pyc" |xargs rm -f'
-alias touch_uwsgi="touch /Users/roger/megvii/label_datas/uwsgi_label++.reload"
-export YMD_REJOB="http://10.201.102.139:22210/re-upload-label-job"
-export YMD_REJOBS="http://10.201.102.139:22210/re-upload-label-jobs"
-
-alias vim='/usr/local/opt/macvim/MacVim.app/Contents/MacOS/Vim'
 plugins=(git autojump)
 
 # End of lines configured by zsh-newuser-install# Path to your oh-my-zsh installation.
