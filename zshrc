@@ -27,7 +27,7 @@ setopt nohup
 export EDITOR="nano"
 export BROWSER=links
 export XTERM="aterm +sb -geometry 80x29 -fg black -bg lightgoldenrodyellow -fn -xos4-terminus-medium-*-normal-*-14-*-*-*-*-*-iso8859-15"
-
+PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%d %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %  %{$reset_color%}'
 ##################################################################
 # Stuff to make my life easier
 #
@@ -72,6 +72,7 @@ bindkey '^i' expand-or-complete-prefix
 ##################################################################
 # My aliases
 
+alias grep="grep --color=auto"
 # Set up auto extension stuff
 # alias -s html=$BROWSER
 # alias -s org=$BROWSER
@@ -88,6 +89,11 @@ bindkey '^i' expand-or-complete-prefix
 # alias -s java=$EDITOR
 # alias -s txt=$EDITOR
 # alias -s PKGBUILD=$EDITOR
+alias -s html='vim'   # 在命令行直接输入后缀为 html 的文件名，会在 Vim 中打开
+alias -s py='vim'      # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s js='vim'
+alias -s c='vim'
+alias -s txt='vim'
 
 # Normal aliases
 # alias ls='ls --color=auto '
@@ -103,6 +109,17 @@ alias mem="free -m"
 
 # command L equivalent to command |less
 alias -g L='|less'
+
+alias code='cd /Users/roger/test_code'
+alias tool_py='cd /Users/roger/megvii/label/data_label/tool_py'
+alias tagger='cd /Users/roger/megvii/label/hailizhaocha_backend/Tagger'
+alias download='cd /Users/roger/Downloads'
+alias document='cd /Users/roger/Documents'
+alias data="cd /Users/roger/data"
+alias find_py='find ./ -name "*.py" |xargs grep -n '
+alias findw_py='find ./ -name "*.py" |xargs grep -n -w '
+alias rm_pyc='find ./ -name "*.pyc" |xargs rm -f'
+alias touch_uwsgi="touch /Users/roger/megvii/label_datas/uwsgi_label++.reload"
 
 plugins=(git autojump)
 

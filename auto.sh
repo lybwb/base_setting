@@ -31,13 +31,13 @@ sudo pip install --upgrade virtualenv
 
 
 echo 'export TERM=xterm-256color' >> ~/.bashrc
-git clone https://github.com/r-lyb/base_setting.git ~/.tmp_setting
+git clone https://github.com/r-lyb/base_setting.git
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
-cp ~/.tmp_setting/vimrc ~/.vimrc
-vim +Bundleinstall +qall
-cp ~/.tmp_setting/tmux.conf ~/.tmux.conf
-cp ~/.tmp_setting/zshrc ~/.zshrc
+cp ~/base_setting/vimrc ~/.vimrc
+cp ~/base_setting/tmux.conf ~/.tmux.conf
+cp ~/base_setting/zshrc ~/.zshrc
 
+vim +Bundleinstall +qall
 sudo chsh -s /bin/zsh
