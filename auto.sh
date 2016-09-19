@@ -28,9 +28,9 @@ sudo apt-get install -y tmux=2.0-1~ppa1~t
 sudo apt-get install -y git
 sudo apt-get install -y nginx
 sudo apt-get install -y ctags
-sudo apt-get install -y build-essential libncurses5-dev libffi-dev exuberant-ctags cmake libevent-dev
+sudo apt-get install -y build-essential libncurses5-dev libffi-dev exuberant-ctags cmake libevent-dev,libssl-dev
 sudo apt-get install -y autoconf libtool pkg-config idle-python2.7 qt4-dev-tools qt4-designer libqtgui4 libqtcore4 libqt4-xml libqt4-test libqt4-script libqt4-network libqt4-dbus libgle3
-sudo apt-get install -y python-pip python-dev python-setuptools libmysqlclient-dev libpython2.7-dev libjpeg8-dev libfreetype6-dev zlib1g-dev python-qt4 python-qt4-gl python-opengl python-imaging python-pyrex python-pyside.qtopengl 
+sudo apt-get install -y python-pip python-dev python-setuptools libmysqlclient-dev libpython2.7-dev libjpeg8-dev libfreetype6-dev zlib1g-dev python-qt4 python-qt4-gl python-opengl python-imaging python-pyrex python-pyside.qtopengl
 #sudo apt-get install -y mysql-server-5.6 #密码为root
 sudo apt-get autoremove
 

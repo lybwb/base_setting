@@ -24,7 +24,7 @@ setopt nohup
 # export PS2="$(print '%{\e[0;34m%}>%{\e[0m%}')"
 # 
 # Vars used later on by Zsh
-export EDITOR="nano"
+export EDITOR="/usr/bin/vim"
 export BROWSER=links
 export XTERM="aterm +sb -geometry 80x29 -fg black -bg lightgoldenrodyellow -fn -xos4-terminus-medium-*-normal-*-14-*-*-*-*-*-iso8859-15"
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%d %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %  %{$reset_color%}'
@@ -99,12 +99,18 @@ alias -s txt='vim'
 # alias ls='ls --color=auto '
 # alias lsd='ls -ld *(-/DN)'
 # alias lsa='ls -ld .*'
-# alias f='find |grep'
+alias f='find |grep'
+
+#
 alias g="git"
 alias c="clear"
-alias dir='ls -1'
+alias dir='ls -al'
+alias ll="ls -al"
 alias ..='cd ..'
+alias ~='cd ~'
 alias mem="free -m"
+
+alias crontab='VIM_CRONTAB=true EDITOR=vim crontab'
 # alias msn="tmsnc -l lyb@megvii.com"
 
 # command L equivalent to command |less
@@ -184,6 +190,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/protobuf/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/protobuf/lib
 
+# 添加mongodb安装目录到环境变量中
+# export PATH=/usr/local/Cellar/mongodb/3.2.9/bin:${PATH}}
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -210,3 +219,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

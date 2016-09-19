@@ -1,7 +1,6 @@
-
+"
 " 定义快捷键的前缀，即<Leader>
 let mapleader=","
-
 " vundle begin
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " Brief help  -- 此处后面都是vundle的使用命令
@@ -29,16 +28,8 @@ Bundle 'STL-improved'
 " Displays tags in a window, ordered by class etc, i used it instead of taglist
 Bundle 'wesleyche/SrcExpl'
 
-"Bundle 'Valloric/ListToggle'
-
 "Code snippets engine for Vim
 Bundle 'xptemplate'
-
-"Bundle 'DoxygenToolkit.vim'
-
-" C/C++ header files should be guarded against multiple inclusions using preprocessor directives
-"Bundle 'tczengming/headerGatesAdd.vim'
-
 Bundle 'genutils'
 Bundle 'lookupfile'
 
@@ -90,11 +81,6 @@ let g:solarized_visibility="high"
 colorscheme solarized
 set background=dark
 hi Normal  ctermfg=252 ctermbg=none     " Transparent background
-
-
-"主题 molokai
-"Bundle 'tomasr/molokai'
-"let g:molokai_original = 1
 
 " 显示行末的空格
 Bundle 'ShowTrailingWhitespace'
@@ -155,7 +141,7 @@ hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=
 
 ""快速浏览和操作Buffer
 "Bundle 'fholgado/minibufexpl.vim'
-"":help buffer 
+"":help buffer
 "" :bn   打开当前buffer的下一个buffer
 "" :bp   打开当前buffer的前一个buffer
 "" :b"num"   打开指定的buffer
@@ -186,6 +172,9 @@ let g:tagbar_width = 30
 Bundle 'tczengming/autoload_cscope.vim'
 
 
+Bundle 'taglist.vim'
+"（写入配置文件.vimrc中） 如果希望列表在右侧显示，则加入这个配置，默认是左侧。
+let Tlist_Use_Right_Window = 1
 " 函数列表
 " :Tlist（正常模式下使用命令） 显示函数列表。
 " d（在taglist窗口下使用） 从列表中删除文件。
@@ -193,9 +182,6 @@ Bundle 'tczengming/autoload_cscope.vim'
 " -（在taglist窗口下使用） 折叠文件。
 " =（在taglist窗口下使用） 折叠所有文件。
 " x（在taglist窗口下使用） 显示或隐藏正常窗口
-Bundle 'taglist.vim'
-"（写入配置文件.vimrc中） 如果希望列表在右侧显示，则加入这个配置，默认是左侧。
-let Tlist_Use_Right_Window = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""语言相关"""""""""""""""""""""""""""""""""""""""
@@ -223,31 +209,6 @@ let python_highlight_all = 1
 " ctrl-x ctrl-o（插入模式下使用命令） omni补全，需要设置omnifunc变量。
 
 " " 代码自动补全
-" "迄今为止用到的最好的自动VIM自动补全插件
-"Bundle 'Valloric/YouCompleteMe'
-" "重启 :YcmRestartServer
-" "youcompleteme  默认tab  s-tab 和自动补全冲突
-let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
-"let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
-let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
-let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
-let g:ycm_cache_omnifunc = 0        " 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_collect_identifiers_from_comments_and_strings = 0   "注释和字符串中的文字也会被收入补全
-let g:ycm_seed_identifiers_with_syntax = 0   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
-"let g:ycm_collect_identifiers_from_tags_files = 1 "会导致一直更新标签，python2 占用内存80%以上
-" 引入，可以补全系统，以及python的第三方包 针对新老版本YCM做了兼容
-" old version
-"if !empty(glob("~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"))
-"    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
-"endif
-" new version
-if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-endif
-
 " 直接触发自动补全
 let g:ycm_key_invoke_completion = '<C-Space>'
 " 跳转到定义处, 分屏打开
@@ -270,6 +231,11 @@ Bundle 'CmdlineComplete'
 " press Ctrl-P. So long as "elephant" is in the buffer, you will get "ele"
 " completed into "elephant".
 
+Bundle "jiangmiao/auto-pairs"
+" let g:AutoPairsFlyMode = 1
+" When the filetype is FILETYPE then make AutoPairs only match for parenthesis
+" au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
+"
 """"""""""""""""""""""自动补全 end""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -305,12 +271,35 @@ Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
 
 " Flake8 plugin for Vim.
-Bundle 'nvie/vim-flake8'
-autocmd BufWritePost *.py call Flake8()
+Bundle 'scrooloose/syntastic'
 
-" compiler plugin for python style checking tool.
-"Bundle 'vim-scripts/pylint.vim'
-"autocmd FileType python compiler pylint
+Bundle 'andviro/flake8-vim'
+let g:PyFlakeOnWrite = 0 "Auto-check file for errors
+" let g:PyFlakeCheckers = 'pep8,frosted'  "
+let g:PyFlakeCheckers = 'pep8,mccabe,frosted'  "
+let g:PyFlakeDefaultComplexity=5
+let g:PyFlakeSigns = 0
+let g:PyFlakeDisabledMessages = 'E501'
+let g:PyFlakeAggressive = 0
+let g:PyFlakeCWindow = 5
+let g:PyFlakeRangeCommand = 'Q'  " Visual-mode key command for PyFlakeAuto
+
+" Bundle 'nvie/vim-flake8'
+" let g:flake8_cmd = "/usr/local/bin/flake8"
+" autocmd BufWritePost *.py call Flake8()
+
+" To customize the height of quick fix window, set g:flake8_quickfix_height:
+" let g:flake8_quickfix_height=5
+" To customize whether the quickfix window opens, set g:flake8_show_quickfix:
+" let g:flake8_show_quickfix=0  " don't show
+" let g:flake8_show_quickfix=1  " show (default)
+" To customize whether the show signs in the gutter, set g:flake8_show_in_gutter:
+" let g:flake8_show_in_gutter=0  " don't show (default)
+" let g:flake8_show_in_gutter=1  " show
+" To customize whether the show marks in the file, set g:flake8_show_in_file:
+" let g:flake8_show_in_file=0  " don't show (default)
+" let g:flake8_show_in_file=1  " show
+" to use colors defined in the colorscheme
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -366,6 +355,10 @@ augroup tmuxline
 augroup END
 let g:tmuxline_powerline_separators = 0
 
+" 显示缩进对齐线,
+Bundle "Yggdroot/indentLine"
+map <leader>il :IndentLinesToggle<CR>
+
 """"""""""""""""""""""显示增强 end""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -416,6 +409,13 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif   " autoclose preview wi
 set nofoldenable  "关闭开启时默认折叠命令
 " "set default foldmethod
 set foldmethod=indent
+set foldlevel=99
+"
+" 打开javascript折叠
+let b:javascript_fold=1
+" 打开javascript对dom、html和css的支持
+let javascript_enable_domhtmlcss=1
+
 
 "close modelines model
 set modelines=0
@@ -445,9 +445,8 @@ set autoread                 "当文件在外部被改变时，Vim自动更新�
 set noswapfile "关闭交换文件
 set cmdheight=1               "命令部分高度为1
 set nobackup
-" set backupdir=~/.vim/backup
-" set directory=~/.vim/backup
-
+set backupcopy=yes
+autocmd filetype crontab setlocal nobackup nowritebackup
 " 状态栏
 set laststatus=2            ""启动显示状态行(1),总是显示状态行(2
 highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
@@ -461,7 +460,8 @@ function! CurDir()
 endfunction
 
 "set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}E5%h\ \ \ Line:\ %l/%L:%c
-set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ [ascii:%b\ hex:0x\%02.2B]\ [%{(&fenc\ ==\ \"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]\ %=%l/%L,%v\ %p%%
+set statusline=%F%m%r%w\ %{&ff}\ %Y\ [ascii:%b\ hex:0x\%02.2B]\ [%{(&fenc\ ==\ \"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]\ %=%l/%L,%v\ %p%%
+"set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ [ascii:%b\ hex:0x\%02.2B]\ [%{(&fenc\ ==\ \"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]\ %=%l/%L,%v\ %p%%
 "set statusline=%2*%n%m%r%h%w%*\ %F\ %1*[FORMAT=%2*%{&ff}:%{&fenc!=''?&fenc:&enc}%1*]\ [TYPE=%2*%Y%1*]\ [COL=%2*%03v%1*]\ [ROW=%2*%03l%1*/%3*%L(%p%%)%1*]\
 
 
@@ -472,7 +472,6 @@ setlocal foldlevel=1 " 设置折叠层数为
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
 set colorcolumn=79,80,81
 set formatoptions+=cql
 
@@ -483,7 +482,7 @@ set formatoptions+=cql
 " guibg 和 guifg 分别是设置gvim的背景色和前景色
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 highlight OverLength ctermbg=7 guibg=SeaGreen
-match OverLength /\%78v.\+/
+match OverLength /\%80v.\+/
 
 highlight LineNr ctermbg=14 guibg=SeaGreen
 
@@ -492,9 +491,9 @@ set cursorline
 highlight CursorLine cterm=NONE  ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
 "开启高亮光标列
-set cursorcolumn " nocursorcolumn 
-highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green 
-" highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green 
+set cursorcolumn " nocursorcolumn
+highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green
+" highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green
 
 
 set list
@@ -581,11 +580,6 @@ let showmarks_enable = 0            " disable showmarks when vim startup
 let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let showmarks_ignore_type = "hqm"   " help, Quickfix, non-modifiable
 
-" 打开javascript折叠
-let b:javascript_fold=1
-" 打开javascript对dom、html和css的支持
-let javascript_enable_domhtmlcss=1
-
 " Switching between buffers.
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
@@ -667,23 +661,23 @@ let g:syntastic_enable_balloons = 1
 let g:syntastic_always_populate_loc_list = 1
 " for tmux to automatically set paste and nopaste mode at the time pasting (as
 " happens in VIM UI)
- 
+
 function! WrapForTmux(s)
   if !exists('$TMUX')
     return a:s
   endif
- 
+
   let tmux_start = "<Esc>Ptmux;"
   let tmux_end = "<Esc>"
- 
+
   return tmux_start . substitute(a:s, "<Esc>", "<Esc><Esc>", 'g') . tmux_end
 endfunction
- 
+
 function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
   return ""
 endfunction
- 
+
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
